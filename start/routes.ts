@@ -20,6 +20,15 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', async ({ view }) => {
-  return view.render('welcome')
+Route.get('/', async ({ response }) => {
+  return response.json({ value: 'oi' })
 })
+
+Route.group(() => {
+  Route.get('/', 'DocumentsController.index').as('index')
+  Route.get('/:id', 'DocumentsController.show').as('show')
+  Route.post('/', 'DocumentsController.store').as('store')
+})
+  .prefix('/documents')
+  .as('documents')
+
