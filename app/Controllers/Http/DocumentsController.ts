@@ -14,12 +14,12 @@ const documents = [
 ]
 
 export default class DocumentsController {
-  public index({ response }: HttpContextContract) {
-    return response.json(documents)
+  public async index({ view }: HttpContextContract) {
+    return view.render('documents/index', { documents: documents })
   }
-  public show({ response, params }: HttpContextContract) {
+  public async show({ view, params }: HttpContextContract) {
     const document = documents[params.id]
-    return response.json(document)
+    return view.render('documents/show', { document })
   }
   public store({ request, response }: HttpContextContract) {
     const text = request.input('text')

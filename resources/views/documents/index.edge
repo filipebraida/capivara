@@ -1,0 +1,13 @@
+@layout('layouts/main')
+@set('title', 'Documents')
+@set('subtitle', '')
+
+@section('body')
+  <ul>
+    @each(document in documents)
+      <li>
+        <a href='{{ route("documents.show", { id: `${document.id}` }) }}'>{{ document.text }}</a>
+      </li>
+    @end
+  </ul>
+@end
