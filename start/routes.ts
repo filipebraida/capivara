@@ -31,4 +31,3 @@ Route.group(() => {
 })
   .prefix('/documents')
   .as('documents')
-
