@@ -3,6 +3,9 @@
 @set('subtitle', '')
 
 @section('body')
+  @if(auth.isLoggedIn)
+    <p> email: {{ auth.user.email }}</p>
+  @endif
   <ul>
     @each(document in documents)
       <li>
