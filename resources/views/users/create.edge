@@ -1,0 +1,35 @@
+@layout('layouts/simple')
+
+@section('home')
+<div class="min-h-screen w-full p-6 flex justify-center items-center">
+  <div class="w-full max-w-xs">
+    <div class="bg-white border p-8 shadow rounded w-full mb-6">
+      <a href="{{ route('home') }}" class="block py-6 w-full text-center md:text-left md:w-auto text-gray-600 no-underline flex justify-center items-center">
+        Capivara
+      </a>
+      <h1 class="mb-6 text-lg text-gray-900 font-thin">Crie sua conta</h1>
+      <form method="POST" action="{{ route('users.store') }}">
+        <fieldset class="mb-4">
+            <label class="block text-sm text-gray-900 mb-2">Email</label>
+            <input id="email" name="email" type="email" class="block w-full rounded-sm border bg-white py-2 px-3 text-sm" name="email" required autofocus>
+        </fieldset>
+
+        <fieldset class="mb-4">
+            <label for="password" class="block text-sm text-gray-900 mb-2">Senha</label>
+            <input id="password" name="password" type="password" class="block w-full rounded-sm border bg-white py-2 px-3 text-sm" name="password" required>
+        </fieldset>
+
+        <fieldset class="mb-4">
+          <label for="confirm_password" class="block text-sm text-gray-900 mb-2">Confirme a sua senha</label>
+          <input id="confirm_password" name="confirm_password" type="password" class="block w-full rounded-sm border bg-white py-2 px-3 text-sm" name="password" required>
+        </fieldset>
+
+        <button type="submit" class="block w-full bg-blue-600 text-white rounded-sm py-3 text-sm tracking-wide">
+            Criar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+@endsection

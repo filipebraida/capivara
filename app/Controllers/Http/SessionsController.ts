@@ -10,13 +10,13 @@ export default class SessionsController {
 
     try {
       await auth.use('web').attempt(email, password)
-      response.redirect().toRoute('documents.index')
+      response.redirect().toRoute('home')
     } catch {
-      return response.badRequest('Invalid')
+      return response.redirect().toRoute('sessions.create')
     }
   }
   public async delete({ auth, response }: HttpContextContract) {
     await auth.use('web').logout()
-    return response.redirect().toRoute('index')
+    return response.redirect().toRoute('home')
   }
 }
