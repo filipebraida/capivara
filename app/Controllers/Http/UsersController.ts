@@ -16,8 +16,6 @@ export default class UsersController {
 
     const user = await User.create({ email, password })
 
-    console.log(user.email)
-
     await auth.use('web').login(user)
 
     return response.redirect().toRoute('home')
